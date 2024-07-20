@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis_container
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - REDIS_USER=${REDIS_USER}
+      - REDIS_USER_PASSWORD=${REDIS_USER_PASSWORD}
+    ports:
+      - "6380:6379"
+    networks:
+      vpcbcc:
+        ipv4_address: 10.5.0.3
+    volumes:
+      - ./redisdata:/data
+
+
+  geocoder:
+    image: geocoder
+    container_name: geocoder_container
+    ports:
+      - "8086:8086"
+    networks:
+      vpcbcc:
+        ipv4_address: 10.5.0.2
+
+networks:
+  vpcbcc:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1

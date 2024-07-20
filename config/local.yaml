@@ -1,0 +1,14 @@
+env: "local"
+db: 
+  radis: 10.5.0.3:6379
+http_server:
+  ip: "localhost"
+  port: 8086
+  timeout: 4s
+  iddle_timeout: 60s
+API:
+  yandexKey: "172f06a9-b24f-4cc8-ad28-12afbdbc2a35"
+  DaDataApi:
+    ApiKeyValue: "7e601a70e8d6bea5be3610a4c517a10afb162bf1"
+    SecretKeyValue: "28415e1f8481061b926d9a6ee6192bfc3703c20f"
+  GeocodeMapsCoKey: "669a1ca23ac61537414478ymc268c3c" 
