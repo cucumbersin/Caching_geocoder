@@ -67,6 +67,9 @@ func yandexApi(addres string) (string, string) {
 
 	var str string = string(body)
 	f := strings.Index(str, "<pos>")
+	if f == -1 {
+		return "", ""
+	}
 	f = f + len("<pos>")
 	s := f
 	for ; s < len(str); s++ {
@@ -134,6 +137,9 @@ func geocodeMapsCo(addres string) (string, string) {
 	var str string = string(body)
 	fmt.Println(str)
 	f := strings.Index(str, "lat=")
+	if f == -1 {
+		return "", ""
+	}
 	f = f + len("lat=") + 1
 	fmt.Println("f=", f, "str[f]", str[f])
 	s := f
@@ -152,5 +158,5 @@ func geocodeMapsCo(addres string) (string, string) {
 	}
 	fmt.Println("f=", f, "s=", s)
 	y := str[f:s]
-	return y, x
+	return x, y
 }

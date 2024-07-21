@@ -19,7 +19,7 @@ func Getcoordinates(log *slog.Logger) http.HandlerFunc {
 		}
 
 		x, y := servic.Getcoordinates(address)
-		w.Write([]byte("x=" + x + " y=" + y))
-		log.Debug("Getcoordinates end", "x", x, "y", y)
+		w.Write([]byte("latitude=" + x + " longitude=" + y))
+		log.Debug("Getcoordinates end", "latitude", x, "longitude", y)
 	}
 }
